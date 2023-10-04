@@ -86,7 +86,7 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
   };
 
   return (
-    <div className='h-full w-full bg-app-black bg-gradient-to-t from-black via-gray-900 to-black' >
+    <div className='h-full w-full bg-app-black ' >
       {/* {createPlaylistModalOpen && (
         <CreatePlaylistModal
           closeModal={() => {

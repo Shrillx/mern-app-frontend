@@ -125,11 +125,11 @@ const Card = ({title, description, imgUrl,followers}) => {
     return (
         <div className="bg-black bg-opacity-40 w-1/5 p-4 rounded-lg">
             <div className="pb-4 pt-2">
-                <img className="w-full rounded-md" src={imgUrl} alt="label" />
+                <img className="w-full h-40 rounded-md object-cover" src={imgUrl} alt="label" />
             </div>
             <div className="text-white font-semibold py-3">{title}</div>
             <div className="text-gray-500 text-sm">{description}</div>
-            <div className="text-gray-500 text-sm font-bold">{followers}</div>
+            <div className="text-gray-500 text-sm pt-3 font-bold">{followers}</div>
         </div>
     );
 };
