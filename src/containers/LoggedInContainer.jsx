@@ -102,7 +102,7 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
           addSongToPlaylist={addSongToPlaylist}
         />
       )} */}
-      <div className={`${currentSong ? "h-9/10" : "h-full"} w-full flex  bg-gradient-to-t from-black via-gray-900 to-black`}>
+      <div className={`${currentSong ? "h-9/10" : "h-full"} w-full flex `}>
         {/* This first div will be the left panel */}
         <div className='h-full w-1/5 bg-black flex flex-col justify-between pb-10'>
           <div>
@@ -163,7 +163,7 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
           </div>
         </div>
         {/* This second div will be the right part(main content) */}
-        <div className='h-full w-4/5 bg-app-black overflow-auto'>
+        <div className='h-full w-4/5 overflow-auto  bg-gradient-to-t from-black via-gray-900 to-black'>
           <div className='navbar w-full h-1/10 bg-black bg-opacity-30 flex items-center justify-end'>
             <div className='w-1/2 flex h-full'>
               <div className='w-2/3 flex justify-around items-center'>
