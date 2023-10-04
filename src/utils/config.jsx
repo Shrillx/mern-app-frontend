@@ -1,0 +1,1 @@
+export const backendUrl = "https://mernappbackend-p9td.onrender.com"
