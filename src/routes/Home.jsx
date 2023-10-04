@@ -68,7 +68,7 @@ const spotifyPlaylistsCardData = [
 
 const Home = () => {
     return (
-        <div className="h-full w-full flex">
+        <div className="h-full w-full flex bg-gradient-to-t from-black via-gray-900 to-black">
             {/* This first div will be the left panel */} 
             <div className="h-full w-1/5 flex flex-col justify-between pb-10 bg-black"> 
                 <div>

@@ -49,30 +49,35 @@ const spotifyPlaylistsCardData = [
     description: "Enjoy your lustful journey",
     imgUrl:
       "https://i.pinimg.com/564x/ed/99/3c/ed993cb3b2bdf43a3509f58ae217be4b.jpg",
+      followers: "12,324 Followers",
   },
   {
     title: "Deep Focus",
     description: "Keep calm and focus with this music",
     imgUrl:
       "https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1766&q=80",
+      followers: "88,243 Followers",
   },
   {
     title: "Instrumental Study",
     description: "Focus with soft study music in the background.",
     imgUrl:
       "https://images.unsplash.com/photo-1612225330812-01a9c6b355ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80",
+      followers: "1,345 Followers",
   },
   {
     title: "Focus Flow",
     description: "Up tempo instrumental hip hop beats",
     imgUrl:
       "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      followers: "9,221 Followers",
   },
   {
     title: "Beats to think to",
     description: "Focus with deep techno and tech house",
     imgUrl:
       "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+      followers: "999 Followers",
   },
 ];
 
@@ -106,6 +111,7 @@ const PlaylistView = ({titleText, cardsData}) => {
                                 title={item.title}
                                 description={item.description}
                                 imgUrl={item.imgUrl}
+                                followers={item.followers}
                             />
                         );
                     })
@@ -115,7 +121,7 @@ const PlaylistView = ({titleText, cardsData}) => {
     );
 };
 
-const Card = ({title, description, imgUrl}) => {
+const Card = ({title, description, imgUrl,followers}) => {
     return (
         <div className="bg-black bg-opacity-40 w-1/5 p-4 rounded-lg">
             <div className="pb-4 pt-2">
@@ -123,6 +129,7 @@ const Card = ({title, description, imgUrl}) => {
             </div>
             <div className="text-white font-semibold py-3">{title}</div>
             <div className="text-gray-500 text-sm">{description}</div>
+            <div className="text-gray-500 text-sm font-bold">{followers}</div>
         </div>
     );
 };
