@@ -1,4 +1,4 @@
-import { useContext, useState, useLayoutEffect, useRef } from "react";
+import { useContext, useState, useLayoutEffect, useRef, useEffect } from "react";
 import { Howl, Howler } from "howler";
 import { Icon } from "@iconify/react";
 import IconText from "../components/shared/IconText";
@@ -7,11 +7,24 @@ import songContext from "../contexts/songContext";
 // import CreatePlaylistModal from "../modals/CreatePlaylistModal";
 // import AddToPlaylistModal from "../modals/AddToPlaylistModal";
 import { makeAuthenticatedPOSTRequest } from "../utils/serverHelpers";
+import { makeAuthenticatedGETRequest } from "../utils/serverHelpers";
 import LOGO from "../resources/SoundLogo.svg";
 
 const LoggedInContainer = ({ children, curActiveScreen }) => {
   const [createPlaylistModalOpen, setCreatePlaylistModalOpen] = useState(false);
   const [addToPlaylistModalOpen, setAddToPlaylistModalOpen] = useState(false);
+  const [currentUserDetails,setCurrentUserDetails] = useState(null);
+
+
+  useEffect(()=>{
+    const fetchUserData = async() =>{
+      const response = await makeAuthenticatedGETRequest("/auth/current-user");
+      setCurrentUserDetails(response);
+    }
+    fetchUserData();
+  },[])
+  const { firstName, lastName } = currentUserDetails;
+
 
   const {
     currentSong,
@@ -84,6 +97,8 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
       setIsPaused(true);
     }
   };
+
+
 
   return (
     <div className='h-full w-full bg-app-black ' >
@@ -175,7 +190,7 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
               <div className='w-1/3 flex justify-around h-full items-center'>
                 <TextWithHover displayText={"Upload Song"} />
                 <div className='bg-white w-10 h-10 flex items-center justify-center rounded-full font-semibold cursor-pointer'>
-                  VD
+                  {firstName.charAt(0)}{lastName.charAt(0)}
                 </div>
               </div>
             </div>
