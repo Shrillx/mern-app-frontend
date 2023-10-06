@@ -90,8 +90,13 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const response = await makeAuthenticatedGETRequest("/auth/current-user");
-      setCurrentUserDetails(response);
+      try {
+        const response = await makeAuthenticatedGETRequest("/user/current-user");
+        console.log("API Response:", response);
+        setCurrentUserDetails(response);
+      } catch (error) {
+        console.error("Error fetching current user:", error);
+      }
     };
     fetchUserData();
   }, []);
