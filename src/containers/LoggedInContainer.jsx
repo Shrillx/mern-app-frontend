@@ -109,7 +109,9 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
   const { firstName = "", lastName = "" } = currentUserDetails;
   const FirstName = firstName.charAt(0);
   const LastName = lastName.charAt(0);
-
+  
+  console.log(FirstName);
+  console.log(LastName)
 
   return (
     <div className='h-full w-full bg-app-black ' >
