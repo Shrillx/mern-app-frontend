@@ -15,24 +15,6 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
   const [addToPlaylistModalOpen, setAddToPlaylistModalOpen] = useState(false);
   const [currentUserDetails,setCurrentUserDetails] = useState(null);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const response = await makeAuthenticatedGETRequest("/auth/current-user");
-      setCurrentUserDetails(response);
-    };
-    fetchUserData();
-  }, []);
-
-  if (currentUserDetails === null) {
-    // Render loading or fallback UI while user details are being fetched
-    return <div>Loading...</div>;
-  }
-
-  const { firstName = "", lastName = "" } = currentUserDetails;
-  const FirstName = firstName.charAt(0);
-  const LastName = lastName.charAt(0);
-
-
   const {
     currentSong,
     setCurrentSong,
@@ -104,6 +86,24 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
       setIsPaused(true);
     }
   };
+
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const response = await makeAuthenticatedGETRequest("/auth/current-user");
+      setCurrentUserDetails(response);
+    };
+    fetchUserData();
+  }, []);
+
+  if (currentUserDetails === null) {
+    // Render loading or fallback UI while user details are being fetched
+    return <div>Loading...</div>;
+  }
+
+  const { firstName = "", lastName = "" } = currentUserDetails;
+  const FirstName = firstName.charAt(0);
+  const LastName = lastName.charAt(0);
 
 
   return (
